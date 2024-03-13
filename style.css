@@ -1,0 +1,95 @@
+/* Estilo básico da tabela */
+table {
+    width: 100%;
+    /* Ajusta a tabela para ocupar a largura total do contêiner */
+    border-collapse: collapse;
+    /* Remove o espaço entre as bordas das células */
+    text-align: left;
+    /* Alinha o texto à esquerda */
+    font-family: Arial, sans-serif;
+    /* Define a fonte da tabela */
+    border-color: #606060;
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    /* Define a fonte da tabela */
+}
+
+thead {
+    background-color: #606060;
+    /* Cor de fundo do cabeçalho da tabela */
+    color: white;
+    /* Cor do texto do cabeçalho */
+}
+
+th {
+    padding: 10px;
+    /* Espaçamento interno para células do cabeçalho */
+    border: 1px solid #787878;
+    /* Cor da borda das células do cabeçalho */
+}
+
+tbody {
+    background-color: #f0f0f0;
+    /* Cor de fundo para o corpo da tabela */
+}
+
+td {
+    padding: 8px;
+    /* Espaçamento interno para células do corpo */
+    border: 1px solid #787878;
+    /* Cor da borda das células do corpo */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #e0e0e0;
+    /* Cor de fundo para linhas ímpares */
+}
+
+tbody tr:hover {
+    background-color: #cccccc;
+    /* Cor de fundo ao passar o mouse */
+}
+
+.linkButton {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #606060;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 20px;
+}
+
+.linkButton:hover,
+.linkButton:focus {
+    background-color: #cccccc;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.quote-container {
+    width: 100%;
+}
+
+.quote-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Adiciona espaço entre as linhas */
+}
+
+.quote-text {
+    flex-grow: 1;
+}
+
+.linkButton {
+    text-decoration: none;
+    font-weight: bold;
+}
