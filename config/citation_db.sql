@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Tempo de geração: 28/02/2024 às 11:03
+-- Tempo de geração: 13/03/2024 às 10:28
 -- Versão do servidor: 5.7.39
 -- Versão do PHP: 7.4.33
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `citation_db`
+-- Banco de dados: `test_db`
 --
 
 -- --------------------------------------------------------
@@ -43,19 +43,10 @@ CREATE TABLE `auteur` (
 CREATE TABLE `citation` (
   `citation_texte` text NOT NULL,
   `citation_date` date NOT NULL,
-  `citation_auteur` text NOT NULL,
-  `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `auteur_id` int(11) NOT NULL,
+  `citation_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Acionadores `citation`
---
-DELIMITER $$
-CREATE TRIGGER `set_creation_date` BEFORE INSERT ON `citation` FOR EACH ROW BEGIN
-    SET NEW.creationDate = NOW();
-END
-$$
-DELIMITER ;
 
 --
 -- Índices para tabelas despejadas
@@ -68,6 +59,13 @@ ALTER TABLE `auteur`
   ADD PRIMARY KEY (`auteur_id`);
 
 --
+-- Índices de tabela `citation`
+--
+ALTER TABLE `citation`
+  ADD UNIQUE KEY `citation_id` (`citation_id`),
+  ADD KEY `auteur_id` (`auteur_id`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -76,6 +74,22 @@ ALTER TABLE `auteur`
 --
 ALTER TABLE `auteur`
   MODIFY `auteur_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `citation`
+--
+ALTER TABLE `citation`
+  MODIFY `citation_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `citation`
+--
+ALTER TABLE `citation`
+  ADD CONSTRAINT `citation_ibfk_1` FOREIGN KEY (`auteur_id`) REFERENCES `auteur` (`auteur_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

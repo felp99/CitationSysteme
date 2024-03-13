@@ -2,19 +2,32 @@
 
 ## Vue d'ensemble
 
-Ce système permet la création et la gestion des auteurs et de leurs citations. Un auteur peut avoir plusieurs citations, mais une citation appartient uniquement à un auteur.
+Projet développé pour étudier la PHP brute.
 
-## Classes
+### Pour installer la base de données :
+
+Changez la variable `$new_database` par le nom que vous voulez donner à votre nouvelle base de données.
+
+Après avoir accédé à l'adresse, le script générera une nouvelle base de données sans données.
+
+Accéder au fichier `config/init.php` à l'adresse http://localhost:8888/citationSysteme/config/init.php.
+
 
 ### UML
 
 ```mermaid
 classDiagram
       class Manager {
-          +create()
-          +read()
-          +update()
-          +delete()
+        <<abstract>>
+          #create(Object)
+          #read(int)
+          #readFromAttributes
+          #update(Object)
+          #delete(ind)
+          #readAll():[]
+          #generateObjectFromArray([]):Object[]
+          #exists(Object):int
+          -connectDB()
       }
       class AuteurManager {
       }
@@ -22,6 +35,7 @@ classDiagram
       }
 
       class Object {
+        <<abstract>>
           -id: int
           -createdAt: datetime
           -updatedAt: datetime
@@ -51,35 +65,6 @@ classDiagram
 
     
 ```
-
-### Auteur
-
-Représente un auteur avec les propriétés suivantes :
-- Nom
-- Prénom
-- Année de Naissance
-
-Les méthodes incluent obtenir le nom complet de l'auteur et récupérer toutes les citations associées.
-
-### Citation
-
-Représente une citation, contenant :
-- Le texte de la citation
-- La date
-- L'auteur
-
-Les méthodes incluent obtenir le texte, la date de la citation, et l'auteur associé.
-
-### Système
-
-Fonctionne comme un gestionnaire pour :
-- Ajouter et récupérer des auteurs
-- Ajouter et récupérer des citations
-- Obtenir toutes les citations d'un auteur spécifique
-
-## Utilisation
-
-Le système offre une interface pour ajouter des auteurs et des citations au système, ainsi que pour permettre la consultation des citations par auteur.
 
 ## Licence
 

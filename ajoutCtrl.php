@@ -63,7 +63,7 @@ $noms = array_map(function ($auteur) {
                                     <?php
                                     // Boucle pour afficher chaque nom d'auteur comme option dans la liste
                                     for ($i = 0; $i < sizeof($noms); $i++) {
-                                        echo "<option value=\"" . htmlspecialchars($noms[$i]) . "\">";
+                                        echo "<option value=\"" . $noms[$i] . "\">";
                                     }
                                     ?>
                                 </datalist>

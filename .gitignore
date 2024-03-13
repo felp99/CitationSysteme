@@ -5,6 +5,8 @@ Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
+config/.env
+
 # Dump file
 *.stackdump
 
@@ -471,4 +473,4 @@ composer.lock
 .sass-cache/
 *.css.map
 *.sass.map
-*.scss.map
+*.scss.map  
